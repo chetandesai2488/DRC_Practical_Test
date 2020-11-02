@@ -24,6 +24,8 @@
 		61F262CE25500CC7001EEE6E /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F262CD25500CC7001EEE6E /* NewsTableViewCell.swift */; };
 		61F464C4255028F2002CA6AB /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F464C3255028F2002CA6AB /* NewsDetailViewController.swift */; };
 		61F464C625502DCD002CA6AB /* DetailNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F464C525502DCD002CA6AB /* DetailNewsTableViewCell.swift */; };
+		61F464C8255031D4002CA6AB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F464C7255031D4002CA6AB /* WebViewController.swift */; };
+		61F464CA25503217002CA6AB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F464C925503217002CA6AB /* WebKit.framework */; };
 		9E5A9E2A5F8313B51CFBD3EE /* Pods_DRC_Practical_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB5008A1B77FC39865D97CA0 /* Pods_DRC_Practical_Test.framework */; };
 		A17FA5AC5B13C783801E88F1 /* Pods_DRC_Practical_TestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231A7BE5ACC1CE5C39F8DDB8 /* Pods_DRC_Practical_TestTests.framework */; };
 /* End PBXBuildFile section */
@@ -69,6 +71,8 @@
 		61F262CD25500CC7001EEE6E /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		61F464C3255028F2002CA6AB /* NewsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 		61F464C525502DCD002CA6AB /* DetailNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsTableViewCell.swift; sourceTree = "<group>"; };
+		61F464C7255031D4002CA6AB /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		61F464C925503217002CA6AB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		7A6C97B2D9C70FD3AA4A00A3 /* Pods-DRC_Practical_Test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRC_Practical_Test.release.xcconfig"; path = "Target Support Files/Pods-DRC_Practical_Test/Pods-DRC_Practical_Test.release.xcconfig"; sourceTree = "<group>"; };
 		8A76DC170CBC4C219883EE4D /* Pods-DRC_Practical_TestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DRC_Practical_TestTests.debug.xcconfig"; path = "Target Support Files/Pods-DRC_Practical_TestTests/Pods-DRC_Practical_TestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		91DFBA2C572B86D90F13F674 /* Pods_DRC_Practical_Test_DRC_Practical_TestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DRC_Practical_Test_DRC_Practical_TestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61F464CA25503217002CA6AB /* WebKit.framework in Frameworks */,
 				9E5A9E2A5F8313B51CFBD3EE /* Pods_DRC_Practical_Test.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,6 +128,7 @@
 		5EA9FE28D626550CB2A2DC1F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				61F464C925503217002CA6AB /* WebKit.framework */,
 				AB5008A1B77FC39865D97CA0 /* Pods_DRC_Practical_Test.framework */,
 				91DFBA2C572B86D90F13F674 /* Pods_DRC_Practical_Test_DRC_Practical_TestUITests.framework */,
 				231A7BE5ACC1CE5C39F8DDB8 /* Pods_DRC_Practical_TestTests.framework */,
@@ -219,6 +225,7 @@
 			children = (
 				61F262C625500BF8001EEE6E /* ViewController.swift */,
 				61F464C3255028F2002CA6AB /* NewsDetailViewController.swift */,
+				61F464C7255031D4002CA6AB /* WebViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -478,6 +485,7 @@
 				61F2628C254FFFC0001EEE6E /* AppDelegate.swift in Sources */,
 				61F464C4255028F2002CA6AB /* NewsDetailViewController.swift in Sources */,
 				61F262C02550031F001EEE6E /* APIRequest.swift in Sources */,
+				61F464C8255031D4002CA6AB /* WebViewController.swift in Sources */,
 				61F2628E254FFFC0001EEE6E /* SceneDelegate.swift in Sources */,
 				61F262C22550040D001EEE6E /* Constant.swift in Sources */,
 				61F262CB25500C97001EEE6E /* NewsViewModel.swift in Sources */,

@@ -10,6 +10,7 @@ import UIKit
 import SDWebImage
 
 class NewsDetailViewController: UIViewController, LinkCellDelegate {
+    
 
     @IBOutlet weak var largeImage: UIImageView!
     @IBOutlet weak var vwLargeImage: UIView!
@@ -21,17 +22,33 @@ class NewsDetailViewController: UIViewController, LinkCellDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-        //self.vwLargeImage.isHidden = true
+        self.vwLargeImage.isHidden = true
 
     }
     
+     // MARK: Actio method
+    @IBAction func clickHideLargeImage(_ sender: Any) {
+        self.vwLargeImage.isHidden = true
+    }
+    
+    // MARK: LinkCell Delegate method
+
     func btnNewsLinkTapped(cell: DetailNewsTableViewCell) {
         let indexPath = self.tblNewsDetail.indexPath(for: cell)
-        print(indexPath?.section)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
+        initialViewController.strUrl = "\(valueNews[indexPath!.section].url ?? "")"
+        self.navigationController?.present(initialViewController, animated: true, completion: nil)
     }
 
+    func btnOpenImageLargeTapped(cell: DetailNewsTableViewCell) {
+        let indexPath = self.tblNewsDetail.indexPath(for: cell)
+        let imageURL = URL(string: valueNews[indexPath!.section].urlToImage!)!
+        largeImage.sd_setImage(with: imageURL)
+        self.vwLargeImage.isHidden = false
+    }
+    
     /*
     // MARK: - Navigation
 

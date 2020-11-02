@@ -49,7 +49,10 @@ class ViewController: UIViewController, RowCellDelegate {
     
     func btnNewsLinkTapped(cell: NewsTableViewCell) {
         let indexPath = self.tblNewsList.indexPath(for: cell)
-        print(indexPath?.section)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
+        initialViewController.strUrl = "\(objNewsViewModel.arrListArticles[indexPath!.section].url ?? "")"
+        self.navigationController?.present(initialViewController, animated: true, completion: nil)
     }
 }
 

@@ -11,6 +11,8 @@ import UIKit
 // MARK: Create protocol for row data
 protocol LinkCellDelegate: AnyObject {
     func btnNewsLinkTapped(cell: DetailNewsTableViewCell)
+    func btnOpenImageLargeTapped(cell: DetailNewsTableViewCell)
+
 }
 
 class DetailNewsTableViewCell: UITableViewCell {
@@ -39,4 +41,7 @@ class DetailNewsTableViewCell: UITableViewCell {
         delegate?.btnNewsLinkTapped(cell: self)
     }
 
+    @IBAction func btnImageLargeOpen(sender: AnyObject) {
+        delegate?.btnOpenImageLargeTapped(cell: self)
+    }
 }
