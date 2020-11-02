@@ -12,7 +12,6 @@ import AVFoundation
 
 class ViewController: UIViewController, RowCellDelegate {
     
-
     @IBOutlet weak var tblNewsList: UITableView!
     
     var objNewsViewModel = NewsViewModel()
@@ -22,9 +21,37 @@ class ViewController: UIViewController, RowCellDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.title = "News"
+        
+        if #available(iOS 13.0, *) {
+            let app = UIApplication.shared
+            let statusBarHeight: CGFloat = app.statusBarFrame.size.height
+            
+            let statusbarView = UIView()
+            statusbarView.backgroundColor = UIColor.white
+            view.addSubview(statusbarView)
+          
+            statusbarView.translatesAutoresizingMaskIntoConstraints = false
+            statusbarView.heightAnchor
+                .constraint(equalToConstant: statusBarHeight).isActive = true
+            statusbarView.widthAnchor
+                .constraint(equalTo: view.widthAnchor, multiplier: 1.0).isActive = true
+            statusbarView.topAnchor
+                .constraint(equalTo: view.topAnchor).isActive = true
+            statusbarView.centerXAnchor
+                .constraint(equalTo: view.centerXAnchor).isActive = true
+          
+        } else {
+            let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView
+            statusBar?.backgroundColor = UIColor.white
+        }
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
         getNewsUpdate()
     }
+    
 
     // MARK: News api call
     func getNewsUpdate() {
@@ -55,6 +82,7 @@ class ViewController: UIViewController, RowCellDelegate {
         self.navigationController?.present(initialViewController, animated: true, completion: nil)
     }
 }
+
 
 // MARK: UICollection view methods
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
