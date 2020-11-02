@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-DRC_Practical_Test-DRC_Practical_TestUITests/Pods-DRC_Practical_Test-DRC_Practical_TestUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework

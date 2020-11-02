@@ -1,0 +1,6 @@
+framework module Pods_DRC_Practical_Test_DRC_Practical_TestUITests {
+  umbrella header "Pods-DRC_Practical_Test-DRC_Practical_TestUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
