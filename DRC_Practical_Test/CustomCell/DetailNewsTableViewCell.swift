@@ -1,5 +1,5 @@
 //
-//  NewsTableViewCell.swift
+//  DetailNewsTableViewCell.swift
 //  DRC_Practical_Test
 //
 //  Created by Chetan Desai on 02/11/20.
@@ -9,19 +9,20 @@
 import UIKit
 
 // MARK: Create protocol for row data
-protocol RowCellDelegate: AnyObject {
-    func btnNewsLinkTapped(cell: NewsTableViewCell)
+protocol LinkCellDelegate: AnyObject {
+    func btnNewsLinkTapped(cell: DetailNewsTableViewCell)
 }
 
-class NewsTableViewCell: UITableViewCell {
+class DetailNewsTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var newImage: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var lblAuthorName: UILabel!
-    @IBOutlet weak var lblDate: UILabel!
-
-    weak var delegate : RowCellDelegate?
+    @IBOutlet weak var lbldescription: UILabel!
+    @IBOutlet weak var lblauthor: UILabel!
+    @IBOutlet weak var lblpublishedAt: UILabel!
+    @IBOutlet weak var newImage: UIImageView!
     
+    weak var delegate : LinkCellDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -34,7 +35,8 @@ class NewsTableViewCell: UITableViewCell {
     }
     
     // MARK: Action method
-    @IBAction func btnNewsLinkTapped(sender: AnyObject) {
+    @IBAction func btnNewsLinkOpen(sender: AnyObject) {
         delegate?.btnNewsLinkTapped(cell: self)
     }
+
 }

@@ -10,7 +10,8 @@ import UIKit
 import SDWebImage
 import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, RowCellDelegate {
+    
 
     @IBOutlet weak var tblNewsList: UITableView!
     
@@ -45,6 +46,11 @@ class ViewController: UIViewController {
         setProgressHub(view: self.view)
         objNewsViewModel.newsListCall()
     }
+    
+    func btnNewsLinkTapped(cell: NewsTableViewCell) {
+        let indexPath = self.tblNewsList.indexPath(for: cell)
+        print(indexPath?.section)
+    }
 }
 
 // MARK: UICollection view methods
@@ -63,8 +69,13 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! NewsTableViewCell
         cell.lblTitle.text = objNewsViewModel.arrListArticles[indexPath.section].title
         cell.lblAuthorName.text = objNewsViewModel.arrListArticles[indexPath.section].author
-        cell.lblDate.text = objNewsViewModel.arrListArticles[indexPath.section].publishedAt
-        //cell.delegate = self
+        
+        let newDate = NSString.convertFormatOfDate(date: "\(objNewsViewModel.arrListArticles[indexPath.section].publishedAt ?? "")", originalFormat: "yyyy-MM-dd'T'HH:mm:ssZ", destinationFormat: "dd MMM, yyyy hh:mm a")
+        cell.lblDate.text = newDate
+        
+        let imageURL = URL(string: objNewsViewModel.arrListArticles[indexPath.section].urlToImage ?? "")
+        cell.newImage.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "placeholder"))
+        cell.delegate = self
         return cell
     }
     
@@ -84,6 +95,33 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tblNewsList.deselectRow(at: indexPath, animated: true)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "NewsDetailViewController") as! NewsDetailViewController
+        initialViewController.valueNews = [objNewsViewModel.arrListArticles[indexPath.section]]
+        self.navigationController?.pushViewController(initialViewController, animated: true)
     }
     
+}
+
+extension NSString {
+
+class func convertFormatOfDate(date: String, originalFormat: String, destinationFormat: String) -> String! {
+
+    // Orginal format :
+    let dateOriginalFormat = DateFormatter()
+    dateOriginalFormat.dateFormat = originalFormat      // in the example it'll take "yy MM dd" (from our call)
+
+    // Destination format :
+    let dateDestinationFormat = DateFormatter()
+    dateDestinationFormat.dateFormat = destinationFormat // in the example it'll take "EEEE dd MMMM yyyy" (from our call)
+
+    // Convert current String Date to NSDate
+    let dateFromString = dateOriginalFormat.date(from: date)
+
+    // Convert new NSDate created above to String with the good format
+    let dateFormated = dateDestinationFormat.string(from: dateFromString!)
+
+    return dateFormated
+
+}
 }
