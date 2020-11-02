@@ -14,7 +14,39 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Syt-lu-dkX">
+                                <rect key="frame" x="0.0" y="92" width="320" height="476"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2lf-gA-98Y">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfb-5x-9BH">
+                                        <rect key="frame" x="134.5" y="30.5" width="51" height="23"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="gfb-5x-9BH" firstAttribute="centerX" secondItem="2lf-gA-98Y" secondAttribute="centerX" id="TFu-Mb-PDe"/>
+                                    <constraint firstItem="gfb-5x-9BH" firstAttribute="centerY" secondItem="2lf-gA-98Y" secondAttribute="centerY" id="sFk-12-V8R"/>
+                                    <constraint firstAttribute="height" constant="84" id="zV3-Zh-umD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGroupedBackgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Syt-lu-dkX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9gs-Cb-VMc"/>
+                            <constraint firstItem="2lf-gA-98Y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="F1I-gu-Jp1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Syt-lu-dkX" secondAttribute="trailing" id="LRm-mX-SXb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Syt-lu-dkX" secondAttribute="bottom" id="QLt-wz-LeT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2lf-gA-98Y" secondAttribute="trailing" id="X9t-hR-1CL"/>
+                            <constraint firstItem="Syt-lu-dkX" firstAttribute="top" secondItem="2lf-gA-98Y" secondAttribute="bottom" constant="8" id="Xde-rx-3hH"/>
+                            <constraint firstItem="2lf-gA-98Y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ilX-H8-VOh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="PbJ-sa-ygh"/>

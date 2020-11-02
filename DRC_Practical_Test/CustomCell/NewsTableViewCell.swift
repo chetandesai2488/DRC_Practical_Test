@@ -8,8 +8,20 @@
 
 import UIKit
 
+// MARK: Create protocol for row data
+protocol RowCellDelegate: AnyObject {
+    func btnPlushTapped(cell: NewsTableViewCell)
+}
+
 class NewsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var newImage: UIImageView!
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblAuthorName: UILabel!
+    @IBOutlet weak var lblDate: UILabel!
+
+    weak var delegate : RowCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +31,11 @@ class NewsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    // MARK: Action method
+    @IBAction func btnPlusTapped(sender: AnyObject) {
+        //delegate?.btnPlushTapped(cell: self)
     }
 
 }
